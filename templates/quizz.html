@@ -1,0 +1,343 @@
+<form id="quiz-form" method="POST">
+    <div class="question" id='q1'>
+        <p>Quelle est ce célèbre personage historique ?</p>
+    <img src="{{ url_for('static', filename='image/degol.jpg') }}"  alt="Image Question" class="question-image"> 
+    <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q1')">Pétain</button>
+    <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q1')">Hitler</button>
+    <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q1')">De Gaulle</button>
+    <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q1')">Charlie Chaplin</button>
+    <input type="hidden" name="question1" id="q1-hidden">
+
+    </div>
+    <div class="question" id="q2" style="display: none;">
+        <p>2. Quelle est le prénom du peintre qui a peint ce tableau ?</p>
+        <img src="{{ url_for('static', filename='image/vangog.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q2')">Emile</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q2')">Rachid</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q2')">Leonardo</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q2')">Pablo</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q2')">Vincent</button>
+        <button type="button" class="btn" onclick="previousQuestion(2)">Retour</button>
+        <input type="hidden" name="question2" id="q2-hidden">
+       
+    </div>
+
+    <div class="question" id="q3" style="display: none;">
+        <p>3. A quelle pays appartient ce drapeau ?</p>
+        <img src="{{ url_for('static', filename='image/rdu.png') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q3')">Roumanie</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q3')">Pays-Bas</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q3')">Lituanie</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q3')">Hongrie</button>
+        <button type="button" class="btn" onclick="previousQuestion(3)">Retour</button>
+        <input type="hidden" name="question3" id="q3-hidden">
+        
+    </div>
+    <div class="question" id="q4" style="display: none;">
+        <p>4. Selon l'expression quelle note de musique donne le ton ?</p>
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q4')">DO</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q4')">MI</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q4')">FA</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q4')">SOL</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q4')">LA</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q4')">SI</button>
+        <button type="button" class="btn" onclick="previousQuestion(4)">Retour</button>
+        <input type="hidden" name="question4" id="q4-hidden">
+        
+    </div>
+    <div class="question" id="q5" style="display: none;">
+        <p>Quel est cet instrument ?</p>
+        <audio controls>
+            <source src="{{ url_for('static', filename='audio/onepiece.mp3') }}" type="audio/mpeg">
+            Votre navigateur ne supporte pas l’élément audio.
+        </audio>
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q5')">Clarinette</button>
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q5')">Flûte traversière</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q5')">Trompette</button>
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q5')">Saxophone</button>
+        <button type="button" class="btn" onclick="previousQuestion(5)">Retour</button>
+        <input type="hidden" name="question5" id="q5-hidden">
+        
+    </div>
+    <div class="question" id="q6" style="display: none;">
+        <p>6. Quelle est le nom de ce duo ?</p>
+        <img src="{{ url_for('static', filename='image/flamby.jpg') }}"  alt="Image Question" class="question-image">
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q6')">McFly et Carlito</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q6')">Le Palmashow</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q6')">Eric et Ramzy</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q6')">Michou et Inoxtag</button>
+        <button type="button" class="btn" onclick="previousQuestion(6)">Retour</button>
+        <input type="hidden" name="question6" id="q6-hidden">
+        
+    </div>
+    <div class="question" id="q7" style="display: none;">
+        <p>7. De quelle langue s'agit il ?</p>
+        <img src="{{ url_for('static', filename='image/coren.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q7')">Coréen</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q7')">Japonais</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q7')">Mandarin</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q7')">Hindi</button>
+        <button type="button" class="btn" onclick="previousQuestion(7)">Retour</button>
+        <input type="hidden" name="question7" id="q7-hidden">
+        
+    </div>
+    <div class="question" id="q8" style="display: none;">
+        <p>8. Quelle image est tiré du film Hunger Games ?</p>
+        <img src="{{ url_for('static', filename='image/film.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q8')">1</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q8')">2</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q8')">3</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q8')">4</button>
+        <button type="button" class="btn" onclick="previousQuestion(8)">Retour</button>
+        <input type="hidden" name="question8" id="q8-hidden">
+        
+    </div>
+    <div class="question" id="q9" style="display: none;">
+        <p>9. Qui est elle ?</p>
+        <img src="{{ url_for('static', filename='image/mylen.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q9')">Eva Luna</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q9')">Mylen Farmer</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q9')">Celine Dion</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q9')">Fifi B.</button>
+        <button type="button" class="btn" onclick="previousQuestion(9)">Retour</button>
+        <input type="hidden" name="question9" id="q9-hidden">
+        
+    </div>
+    <div class="question" id="q10" style="display: none;">
+        <p>10. Où ce situe ce batiment un peu connu ?</p>
+        <img src="{{ url_for('static', filename='image/taj-mahal.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q10')">Sri Lanka</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q10')">République démocratique du Congo</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q10')">Kazakstan</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q10')">Inde</button>
+        <button type="button" class="btn" onclick="previousQuestion(10)">Retour</button>
+        <input type="hidden" name="question10" id="q10-hidden">
+        
+    </div>
+    <div class="question" id="q11" style="display: none;">
+        <p>11.De quelle marque s'agit il ?</p>
+        <img src="{{ url_for('static', filename='image/starbuck.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q11')">La sirène enchanté</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q11')">Starbucks</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q11')">BNP Paribas</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q11')">Green Forest</button>
+        <button type="button" class="btn" onclick="previousQuestion(11)">Retour</button>
+        <input type="hidden" name="question11" id="q11-hidden">
+        
+    </div>
+    <div class="question" id="q12" style="display: none;">
+        <p>12. Quelle est ce pays ?</p>
+        <img src="{{ url_for('static', filename='image/mongolie.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q12')">Turkmenistan</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q12')">Mongolie</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q12')">Kazakstan</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q12')">Inde</button>
+        <button type="button" class="btn" onclick="previousQuestion(12)">Retour</button>
+        <input type="hidden" name="question12" id="q12-hidden">
+        
+    </div>
+    <div class="question" id="q13" style="display: none;">
+        <p>13. Qui est ce ?</p>
+        <img src="{{ url_for('static', filename='image/dams.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q13')">Fianso</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q13')">Niska</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q13')">Yanick Noa</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q13')">Damso</button>
+        <button type="button" class="btn" onclick="previousQuestion(13)">Retour</button>
+        <input type="hidden" name="question13" id="q13-hidden">
+        
+    </div>
+    <div class="question" id="q14" style="display: none;">
+        <p>14. Quelle image n'a PAS été générer par l'IA?</p>
+        <img src="{{ url_for('static', filename='image/deepfake.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q14')">1</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q14')">2</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q14')">3</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q14')">4</button>
+        <button type="button" class="btn" onclick="previousQuestion(14)">Retour</button>
+        <input type="hidden" name="question14" id="q14-hidden">
+        
+    </div>
+    <div class="question" id="q15" style="display: none;">
+        <p>15. Quelle est cette animal ?</p>
+        <img src="{{ url_for('static', filename='image/tatoo.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q15')">Tatou</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q15')">Tamanoire</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q15')">Sablette</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q15')">Tapir</button>
+        <button type="button" class="btn" onclick="previousQuestion(15)">Retour</button>
+        <input type="hidden" name="question15" id="q15-hidden">
+        
+    </div>
+    <div class="question" id="q16" style="display: none;">
+        <p>16. Quelle est l'oeuvre la plus connu de William Shakspear ?</p>
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q16')">Les 4 saisons</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q16')">Les misérables</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q16')">Roméo et Juliette</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q16')">Notre dame de Paris</button>
+        <button type="button" class="btn" onclick="previousQuestion(16)">Retour</button>
+        <input type="hidden" name="question16" id="q16-hidden">
+        
+    </div>
+    <div class="question" id="q17" style="display: none;">
+        <p>17. Qui est ce  ?</p>
+        <img src="{{ url_for('static', filename='image/nico.jpg') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q17')">Nicolas Cage</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q17')">Jack Nicolson</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q17')">Brad Pitt</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q17')">Mathew McConaughey</button>
+        <button type="button" class="btn" onclick="previousQuestion(17)">Retour</button>
+        <input type="hidden" name="question17" id="q17-hidden">
+        
+    </div>
+    <div class="question" id="q18" style="display: none;">
+        <p>18. Qui entendez vous chantez ?</p>
+        <audio controls>
+            <source src="{{ url_for('static', filename='audio/letitbe.mp3') }}" type="audio/mpeg">
+            Votre navigateur ne supporte pas l’élément audio.
+        </audio>
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q18')">Paul McCartney</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q18')">Carles Aznavour</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q18')">Freddy Mercury</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q18')">John Lenon</button>
+        <button type="button" class="btn" onclick="previousQuestion(18)">Retour</button>
+        <input type="hidden" name="question18" id="q18-hidden">
+        
+    </div>
+    <div class="question" id="q19" style="display: none;">
+        <p>19. Bobby a 8 ans et est deux fois plus grand que sa soeur Bobette, quand Bobby aura 20 ans quelle âge aura Bobette ?</p>
+        
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q19')">10 ans</button>
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q19')">17 ans</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q19')">15 ans</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q19')">12 ans</button>
+        <button type="button" class="btn" onclick="previousQuestion(19)">Retour</button>
+        <input type="hidden" name="question19" id="q19-hidden">
+        
+    </div>
+    <div class="question" id="q20" style="display: none;">
+        <p>20.combien pèse 1 mètre cube d'eau ?</p>
+        <img src="{{ url_for('static', filename='image/eau.png') }}"  alt="Image Question" class="question-image"> 
+        <button type="button" class="answer-btn" data-value="incorrect" onclick="selectAnswer(this, 'q20')">100kg</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q20')">500 kg</button>
+        <button type="button" class="answer-btn" data-value="correct" onclick="selectAnswer(this, 'q20')">1000 kg</button>
+        <button type="button" class="answer-btn" data-value="incorect" onclick="selectAnswer(this, 'q20')">5000 kg</button>
+        <button type="button" class="btn" onclick="previousQuestion(20)">Retour</button>
+        <input type="hidden" name="question20" id="q20-hidden">
+        
+    </div>
+    <script>
+        function selectAnswer(button, question) {
+    // Supprime la sélection précédente
+            document.querySelectorAll(`.question#${question} .answer-btn`).forEach(btn => {
+                btn.classList.remove("selected");
+            });
+            
+            // Ajoute la classe sélectionnée
+            button.classList.add("selected");
+
+            // Met à jour l'input caché
+            document.getElementById(question + "-hidden").value = button.getAttribute("data-value");
+            // Passe à la question suivante après une courte pause
+            setTimeout(() => nextQuestion(parseInt(question.slice(1))), 150);
+            }
+        function nextQuestion(num) {
+    // Vérifie qu'une réponse est sélectionnée
+    //var selectedOption = document.querySelector(`input[name="question${num}"]:checked`);
+    //if (!selectedOption) {
+        //alert("Veuillez sélectionner une réponse avant de continuer !");
+       // return;
+    //}
+
+    // Cache la question actuelle
+    document.getElementById('q'+num).style.display = "none";
+
+    // Affiche la question suivante si elle existe
+    var next = document.getElementById('q'+(num + 1).toString());
+    if (next) {
+        next.style.display = "block";
+    } else {
+        // Affiche le bouton de soumission si c'est la dernière question
+        document.getElementById("submit-btn").style.display = "block";
+        
+    }
+}
+
+        function previousQuestion(num) {
+
+    // Cache la question actuelle
+    document.getElementById('q'+num).style.display = "none";
+
+    // Affiche la question précédente si elle existe
+    var prev = document.getElementById('q'+(num - 1).toString());
+    if (prev) {
+        prev.style.display = "block";
+    }
+}
+
+    </script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center; /* Centre horizontalement */
+            align-items: center; /* Centre verticalement */
+            height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+            margin: 0; /* Élimine les marges par défaut */
+            background-color: #f0f0f0; /* Fond légèrement gris pour plus de visibilité */
+            font-size: 30px;
+        }
+    
+        .question {
+            text-align: center; /* Centre le texte à l'intérieur de la question */
+            background-color: white; /* Fond blanc pour chaque question */
+            border: 1px solid #ccc; /* Bordure autour des questions */
+            padding: 20px; /* Espacement interne */
+            border-radius: 10px; /* Bords arrondis */
+            width: 80%; /* Largeur de la question */
+            max-width: 500px; /* Largeur maximale */
+            font-size: 34px;
+        }
+        .question img {
+            max-width: 100%; /* L'image prend toute la largeur du conteneur */
+            height: auto; /* La hauteur est automatiquement ajustée pour garder les proportions */
+            display: block; /* Supprime l'espace sous l'image */
+            margin-bottom: 20px; /* Ajoute de l'espace entre l'image et les boutons */
+        }
+        .answer-btn {
+            background-color: lightgray;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box; /* Pour s'assurer que le padding n'augmente pas la largeur */
+            font-size: 20px ;
+        }
+    
+        .answer-btn.selected {
+            background-color: blue;
+            color: white;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            background: #facc15;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background: #f59e0b;
+        }
+        
+
+    </style>
+    
+    <button class="btn" type="submit" id="submit-btn" style="display: none;">Soumettre</button>
+</form>

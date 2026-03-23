@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultat du Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+            display: inline-block;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .emoji {
+            font-size: 50px;
+        
+        }
+        .promo {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-radius: 10px;
+            box-shadow: 0px 0px 5px gray;
+        }
+        .promo h2 {
+            color: #1976D2;
+        }
+        .promo a {
+            color: #0D47A1;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Merci d'avoir joué ! 🎉</h1>
+        <p class="score">Tu as obtenu <strong>{{ score }}</strong> sur <strong>{{ total }}</strong> !</p>
+        
+        {% if score == total %}
+            <p class="emoji">🏆 Félicitations, c'est un sans faute !</p>
+        {% elif score >= total * 0.7 %}
+            <p class="emoji">😃 Super score ! Bien joué !</p>
+        {% elif score >= total * 0.4 %}
+            <p class="emoji">😐 Pas mal, tu peux encore progresser !</p>
+        {% else %}
+            <p class="emoji">😅 Oups, il va falloir réviser un peu...</p>
+        {% endif %}
+
+        <div class="promo">
+            <h2>🚀 Envie d'échanger sur la Data Science ?</h2>
+            <p>Je suis un Data Scientist passionné à la recherche d'opportunités !</p>
+            <p>Si vous êtes recruteur ou que vous avez simplement des conseils ou des idées à donner , 
+                n'hésitez pas à me contacter sur <a href="https://www.linkedin.com/in/kmouhamed/" target="_blank">LinkedIn</a>.</p>
+            <p>Merci pour votre visite et à bientôt !</p>
+        </div>
+    </div>
+
+</body>
+</html>

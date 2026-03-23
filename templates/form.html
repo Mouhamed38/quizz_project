@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Prépare-toi pour le Quiz !</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            font-size: 28px;
+            color: #facc15;
+        }
+        label {
+            font-size: 18px;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #2a2a2a;
+            color: white;
+        }
+        input:focus, select:focus {
+            outline: 2px solid #facc15;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            background: #facc15;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover {
+            background: #f59e0b;
+        }
+        .checkbox-container label {
+    display: inline-block;
+    width: 150px;
+    margin: 5px 10px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Dis-nous en plus sur toi !</h1>
+        <p>On va essayer de deviner ton score avec ces infos 👀</p>
+        <form method="POST" action="/form">
+            <label for="age">📅 Ton âge :</label>
+            <input type="number" id="age" name="age" min="1" max="120" required>
+
+            <label for="nationalite">🌍 Es tu de nationalité Francaise :</label>
+            <select id="nationalite" name="nationalite" required>
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+                
+
+            <label for="name">🌍Prénom ou Pseudo</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="livres">📖 Combien de livres as-tu lus dans ta vie ?</label>
+            <select id="livres" name="livres" required>
+                <option value="0-10">0-10</option>
+                <option value="10-30">10-30</option>
+                <option value="30-60">30-60</option>
+                <option value="+60">+60</option>
+            </select>
+
+            <label for="actualite">📰 À quelle fréquence te renseignes-tu sur l'actualité ?</label>
+            <select id="actualite" name="actualite" required>
+                <option value="quotidien">Tous les jours</option>
+                <option value="hebdo">Une fois par semaine</option>
+                <option value="mensuel">Une fois par mois</option>
+                <option value="rare">Rarement</option>
+            </select>
+
+            <label for="pays">✈️ Combien de pays as-tu visités ?</label>
+            <select id="pays" name="pays" required>
+                <option value="0">0</option>
+                <option value="1-3">1-3</option>
+                <option value="4-7">4-7</option>
+                <option value="8+">8 ou plus</option>
+            </select>
+
+            <label for="telerealite">📺 Tu mates la télé-réalité ?</label>
+            <select id="telerealite" name="telerealite" required>
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+          
+
+            <label>Choisissez 2 centres d'intérêt :</label><br>
+            <div class="checkbox-container">
+            <label><input type="checkbox" name="interests[]" value="Histoire" onclick="limitCheckboxSelection(this, 2)"> Histoire</label>
+            <label><input type="checkbox" name="interests[]" value="musique" onclick="limitCheckboxSelection(this, 2)"> Musique</label>
+            <label><input type="checkbox" name="interests[]" value="lecture" onclick="limitCheckboxSelection(this, 2)"> Lecture</label>
+            <label><input type="checkbox" name="interests[]" value="voyage" onclick="limitCheckboxSelection(this, 2)"> Voyage</label>
+            <label><input type="checkbox" name="interests[]" value="film" onclick="limitCheckboxSelection(this, 2)"> Film/Série</label>
+            <label><input type="checkbox" name="interests[]" value="cuisine" onclick="limitCheckboxSelection(this, 2)"> Cuisine</label>
+            <label><input type="checkbox" name="interests[]" value="jeux_video" onclick="limitCheckboxSelection(this, 2)"> Jeux vidéo</label>
+            <label><input type="checkbox" name="interests[]" value="mangas" onclick="limitCheckboxSelection(this, 2)"> Mangas/Animés</label>
+            </div>
+         
+
+            <label for="diplome">🎓 Ton dernier diplôme obtenu :</label>
+            <select id="diplome" name="diplome" required>
+                <option value="aucun">Aucun</option>
+                <option value="bac">Baccalauréat</option>
+                <option value="bac+2">Bac+2</option>
+                <option value="bac+3">Bac+3</option>
+                <option value="bac+5">Bac+5 ou plus</option>
+            </select>
+
+            <label for="type_etudes"> Plutôt Scientifique 🔬 ou Littéraire 📚 ?</label>
+            <select id="type_etudes" name="type_etudes" required>
+                <option value="Scientifique"> Scientifique</option>
+                <option value="Littéraire"> Littéraire</option>
+            </select>
+
+            <label for="etude">🇫🇷 As-tu fait la majorité de tes études en France ?</label>
+            <select id="etude" name="etude" required>
+                <option value="oui">Oui</option>
+                <option value="non">Non</option>
+            </select>
+
+            <label for="reseaux">📱 Temps moyen passé sur les réseaux sociaux :</label>
+            <select id="reseaux" name="reseaux" required>
+                <option value="moins_1h">Moins d'une heure</option>
+                <option value="1-3h">1-3 heures</option>
+                <option value="4-6h">4-6 heures</option>
+                <option value="plus_6h">Plus de 6 heures</option>
+            </select>
+
+            <label for="cinema">🎬 Fréquence de tes sorties cinéma :</label>
+            <select id="cinema" name="cinema" required>
+                <option value="tres_souvent">Très souvent (plus d'une fois par semaine)</option>
+                <option value="souvent">Souvent (1 à 2 fois par mois)</option>
+                <option value="occasionnel">Occasionnel (1 fois tous les 2 mois)</option>
+                <option value="rarement">Rarement (moins de 2 fois par an)</option>
+            </select>
+
+            <label for="auto_evaluation">💡 Comment évalues-tu tes connaissances générales (0-20) ?</label>
+            <input type="number" id="auto_evaluation" name="auto_evaluation" min="0" max="20" required>
+
+            <br><br>
+            <button class="btn" type="submit">🔥 C’est parti ! 🔥</button>
+        </form>
+    </div>
+    <script>
+        function limitCheckboxSelection(checkbox, max) {
+            const checkedBoxes = document.querySelectorAll('input[name="interests[]"]:checked');
+            if (checkedBoxes.length > max) {
+            checkbox.checked = false;
+            alert(`Vous ne pouvez sélectionner que ${max} centres d'intérêt.`);
+            }
+        }
+    </script>
+    
+</body>
+</html>

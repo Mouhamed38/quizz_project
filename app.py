@@ -5,11 +5,11 @@ from werkzeug.utils import redirect
 import csv,json
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.wrappers import ResponseStream
-    app=Flask(__name__)
-    app.secret_key = 'une_cle_secrete_longue_et_unique'  # Définit la clé secrète
-    app.config['SQLALCHEMY_DATABASE_URI']='DATABASE_URL'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    db=SQLAlchemy(app)
+app=Flask(__name__)
+app.secret_key = 'une_cle_secrete_longue_et_unique'  # Définit la clé secrète
+app.config['SQLALCHEMY_DATABASE_URI']='DATABASE_URL'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db=SQLAlchemy(app)
 class User(db.Model):
     __tablename__ = 'users'  # Nom de la table dans la base de données
     
